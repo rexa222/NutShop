@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <div class="rounded-box mt-0">
+          <h2 class="my-2">شهر جدید</h2>
+{#          <form class="w-95" method="post">#}
+{#              {% csrf_token %}#}
+{#              <div class="form-group *:nth-child(odd) custom-label *:nth-child(odd) mb-2 *:nth-child(odd) w-100#}
+{#              *:nth-child(even) custom-label *:nth-child(even) w-100 *:nth-child(even) mb-2">#}
+{#              {{ form }}#}
+{#              </div>#}
+{#              <input class="btn btn-info w-100 mt-2" type="submit" value="ذخیره">#}
+{#              <button type="submit" class="btn btn-info w-100 mt-2">ذخیره</button>#}
+{#          </form>#}
+            <form class="w-95" method="POST">
+              {% csrf_token %}
+
+              <div class="form-group">
+                <label for="{{ form.name.id_for_label }}" class="custom-label mb-2">نام شهر:</label>
+                <input type="{{ field.field.widget.input_type }}" id="{{ form.name.id_for_label }}" name="{{ form.name.html_name }}" class="form-control custom-input mb-2" value="">
+              </div>
+
+              <button type="submit" class="btn btn-info w-100 mt-3">ذخیره</button>
+            </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock content %}

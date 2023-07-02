@@ -1,0 +1,101 @@
+@font-face {
+    font-family: "Vazirmatn";
+    src: url('../fonts/Vazirmatn-VariableFont_wght.ttf') format('truetype');
+    /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+    font-style: normal;
+  }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Vazirmatn', sans-serif;
+    color: #fff;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+    align-items: center;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+.section {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.section h2 {
+    margin: 0;
+}
+
+/* Neon-like effect */
+.sidebar:after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    right: -2px;
+    width: 4px;
+    height: 80%;
+    background-color: #fff; /* Neon color - white */
+    border-radius: 10px;
+    box-shadow: 0 0 20px #fff; /* Neon color - white */
+}
+
+.company-title {
+    font-size: 446%;
+    font-weight: 300;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 0, 0, 0.4), 0 0 10px rgba(255, 255, 255, 0.2), 0 0 10px rgba(0, 0, 0, 0.2); /* Neon color - white, transparent black outline */
+}
+
+.company-line {
+    width: 22rem;
+    border-top: 2px solid #fff; /* Neon color - white */
+    background-color: #fff; /* Neon color - white */
+    border-radius: 5px;
+    box-shadow: 0 0 20px #fff; /* Neon color - white */
+    margin-top: 20px; /* Add a margin-top to create space between the line and title */
+}
+
+.company-description {
+    font-size: 222%;
+    color: #9fcdff;
+    font-weight: 300;
+    margin-top: 20px;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 0, 0, 0.4), 0 0 10px rgba(255, 255, 255, 0.2), 0 0 10px rgba(0, 0, 0, 0.2); /* Neon color - white, transparent black outline */
+}
+
+.login {
+    font-size: 149%;
+    font-weight: 500;
+    padding: 1% 5%;
+    position: absolute;
+    top: 23%;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.top-left-logo {
+    height: 7%;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+}

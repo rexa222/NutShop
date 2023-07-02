@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-7 mx-auto">
+        <div class="rounded-box p-3 mt-0">
+            <div class="d-flex">
+                <h2 class="my-2">موجودی محصولات</h2> &nbsp;
+                <a href="{% url 'inv_stock_new' %}" class="mr-2">
+                    <i class="fa-solid fa-plus text-info"></i>
+                </a>
+            </div>
+        </div>
+
+          <div class="rounded-box">
+              <table class="table table-dark table-striped mb-0">
+                  <thead>
+                    <tr>
+                        <th class="fs-7 text-center text-light-blue">محصول</th>
+                        <th class="fs-7 text-center text-light-blue">انبار</th>
+                        <th class="fs-7 text-center text-light-blue">تعداد</th>
+                        <th class="fs-7 text-center text-light-blue">عملیات</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                  {% for product in object_list %}
+                      <tr>
+                          <td class="me-1 text-center">{{ product.name }}</td>
+                          <td class="me-1 text-center">{{ product.inventory }}</td>
+                          <td class="me-1 text-center">{{ product.stock }}</td>
+                      <td class="w-20 text-center">
+                          <a href="{% url 'inv_stock_del' product.pk %}" class="text-danger">
+                              <i class="fa-solid fa-trash-can"></i>
+                          </a>
+                      </td>
+                      </tr>
+                  {% endfor %}
+                  </tbody>
+              </table>
+          </div>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+
+        <div class="rounded-box mt-0">
+
+        <h2 class="my-2 text-danger">حذف محصول</h2>
+        <form class="w-95 mt-1" method="post">
+            {% csrf_token %}
+
+            <p>آیا از حذف محصول "{{ product.name }}" اطمینان دارید؟</p>
+            <input type="submit" value="حــذف" class="btn btn-danger w-100">
+
+        </form>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+{% endblock content %}

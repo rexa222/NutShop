@@ -1,0 +1,133 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html dir="rtl" lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+    <link href="{% static 'img/icon.png' %}" rel="icon" />
+    <title>ثبت نام</title>
+    <meta name="description" content="Login and Register Form Html Template">
+    <meta name="author" content="harnishdesign.net">
+
+    <!-- Web Fonts
+    ========================= -->
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i' type='text/css'>
+
+    <!-- Stylesheet
+    ========================= -->
+    <link rel="stylesheet" type="text/css" href="{% static 'reg/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'reg/css/all.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'reg/css/stylesheet.css' %}" />
+</head>
+<body>
+
+<!-- Preloader -->
+<div class="preloader preloader-dark">
+  <div class="lds-ellipsis">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+<!-- Preloader End -->
+
+<div id="main-wrapper" class="oxyy-login-register">
+  <div class="hero-wrap min-vh-100">
+    <div class="hero-mask opacity-4 bg-secondary"></div>
+    <div class="hero-bg hero-bg-scroll" style="background-image:url('{% static 'img/nuts-light-bg.jpg' %}');"></div>
+    <div class="hero-content d-flex min-vh-100">
+      <div class="container my-auto">
+        <div class="row">
+          <div class="col-md-9 col-lg-7 col-xl-5 mx-auto">
+            <div class="hero-wrap rounded shadow-lg p-4 py-sm-5 px-sm-5 my-4">
+              <div class="hero-mask opacity-9 bg-dark-1"></div>
+              <div class="hero-content">
+                <div class="logo mb-4">
+                    <a class="d-flex justify-content-center" href="{% url 'landing' %}" title="REXA Nuts">
+                        <img style="height: 50px" src="{% static 'img/logo.png' %}" alt="REXA Nuts">
+                    </a>
+                </div>
+                <form id="registerForm" class="form-dark" method="post">
+                    {% csrf_token %}
+                    <div class="text-danger text-sm-left mt-2">{{ form.non_field_errors }}</div>
+
+                    <div class="form-group icon-group">
+                      <input
+                              type="text"
+                              class="form-control"
+                              name="username"
+                              autofocus
+                              autocapitalize="none"
+                              autocomplete="username"
+                              maxlength="150"
+                              id="id_username"
+                              required
+                              placeholder="نام کاربری">
+                      <span class="icon-inside"><i class="fas fa-user"></i></span>
+                      <span class="text-danger text-sm-left mt-2">{{ form.username.errors }}</span>
+                    </div>
+
+                    <div class="form-group icon-group">
+                        <span class="text-error text-sm mt-2">{{ form.city.errors }}</span>
+                        <label for="id_city" class="text-light float-right mr-2">شهر:</label>
+                        <select name="city" required id="id_city" class="form-select custom-select text-light">
+                          {% for choice in form.city.field.choices %}
+                              {% if choice.0 != "" %}
+                                <option value="{{ choice.0 }}" {% if choice.0 == form.city.value %}selected{% endif %}>
+                                  {{ choice.1 }}
+                                </option>
+                              {% endif %}
+                          {% endfor %}
+                        </select>
+                    </div>
+
+                  <div class="form-group icon-group">
+                    <input
+                            type="password"
+                            class="form-control"
+                            name="password1"
+                            autocomplete="new-password"
+                            id="id_password1"
+                            required
+                            placeholder="رمز عبور">
+                    <span class="icon-inside"><i class="fas fa-lock"></i></span>
+                      <div class="text-danger text-sm-left mt-2">{{ form.password1.errors }}</div>
+                  </div>
+
+                  <div class="form-group icon-group">
+                    <input
+                            type="password"
+                            class="form-control"
+                            name="password2"
+                            autocomplete="new-password"
+                            id="id_password2"
+                            required
+                            placeholder="تکرار رمز عبور">
+                    <span class="icon-inside"><i class="fas fa-lock"></i></span>
+                      <div class="text-danger text-sm mt-2">{{ form.password2.errors }}</div>
+                  </div>
+
+                  <button class="btn btn-info btn-block mt-4 mb-3" type="submit">ثبت نام</button>
+
+                </form>
+                <p class="text-2 text-muted text-center mt-2 mb-0">حساب کاربری دارید؟ <a class="btn-link text-light text-3" href="{% url 'login' %}">وارد شوید</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Script --> 
+<script src="{% static 'reg/js/jquery.min.js' %}"></script>
+<script src="{% static 'reg/js/bootstrap.bundle.min.js' %}"></script>
+<!-- Style Switcher -->
+<script src="{% static 'reg/js/switcher.min.js' %}"></script>
+<script src="{% static 'reg/js/theme.js' %}"></script>
+</body>
+</html>

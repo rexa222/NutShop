@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="rounded-box mt-0">
+                <h2 class="my-2">بروزرسانی سفارش</h2>
+
+                <div class="form-group w-100">
+                <form class="w-100 my-2" method="post">
+                    {% csrf_token %}
+
+                    {% for field in form %}
+                        <label for="{{ field.id_for_label }}" class="mb-2">{{ field.label }}</label>
+                        <div class="mb-2">{{ field }}</div>
+                    {% endfor %}
+
+                    <input class="btn btn-primary w-100 mt-3" type="submit" value="ذخیره">
+
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock content %}

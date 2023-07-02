@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-7 mx-auto">
+        <div class="rounded-box p-3 mt-0">
+            <div class="d-flex">
+                <h2 class="my-2">محصولات</h2> &nbsp;
+                <a href="{% url 'product_new' %}" class="mr-2">
+                    <i class="fa-solid fa-plus text-info"></i>
+                </a>
+            </div>
+        </div>
+
+          <div class="rounded-box">
+              <table class="table table-dark table-striped mb-0">
+                  <thead>
+                    <tr>
+                        <th class="fs-7 text-center text-light-blue">نام</th>
+                        <th class="fs-7 text-center text-light-blue">قیمت (تومان)</th>
+                        <th class="fs-7 text-center text-light-blue">وزن بسته</th>
+                        <th class="fs-7 text-center text-light-blue">حذف</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                  {% for product in object_list %}
+                      <tr>
+                          <td class="me-1 text-center">{{ product.name }}</td>
+                          <td class="me-1 text-center">{{ product.price }}</td>
+                          <td class="me-1 text-center">{{ product.quantity }} کیلوگرم</td>
+                      <td class="w-25 text-center">
+                          <a href="{% url 'product_delete' product.pk %}" class="text-danger">
+                              <i class="fa-solid fa-trash-can"></i>
+                          </a>
+                      </td>
+                      </tr>
+                  {% endfor %}
+                  </tbody>
+              </table>
+          </div>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock content %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-10 mx-auto">
+        <div class="rounded-box p-3 mt-0">
+            <div class="d-flex"><h2 class="my-2">سفارش کاربران</h2></div>
+        </div>
+
+          <div class="rounded-box">
+              <table class="table table-dark table-striped mb-0">
+                  <thead>
+                      <tr class="w-100">
+                          <th class="fs-7 text-center text-light-blue">کاربر</th>
+                          <th class="fs-7 text-center text-light-blue">انبار</th>
+                          <th class="fs-7 text-center text-light-blue">محصول</th>
+                          <th class="fs-7 text-center text-light-blue">تعداد</th>
+                          <th class="fs-7 text-center text-light-blue">وضعیت</th>
+                          <th class="fs-7 text-center text-light-blue">عملیات</th>
+                      </tr>
+                  </thead>
+
+                  <tbody>
+                  {% for order in object_list %}
+                      <tr>
+                          <td class="me-1 text-center">{{ order.user.username }}</td>
+                          <td class="me-1 text-center">{{ order.product.inventory }}</td>
+                          <td class="me-1 text-center">{{ order.product }}</td>
+                          <th class="me-1 text-center">{{ order.quantity }}</th>
+                          <th class="me-1 text-center">{{ order.status }}</th>
+                      <td class="w-14 text-center">
+                          <a href="{% url 'order_update' order.pk %}" class="text-info me-1">
+                              <i class="fa-solid fa-pen-to-square"></i>
+                          </a>
+                      </td>
+                      </tr>
+                  {% endfor %}
+                  </tbody>
+              </table>
+          </div>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock content %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <div class="rounded-box p-3 mt-0">
+            <h2 class="my-2">تکمیل سفارش</h2>
+        </div>
+
+          <div class="rounded-box">
+
+              <h2 class="my-2">{{ product.name }}</h2>
+              <div class="opacity-50 mb-2">وزن بسته: {{product.name.quantity}} کیلوگرم</div>
+              <div class="text-info mb-2">{{ product.name.price }} تومان</div>
+                <form class="w-95" method="post">
+                    {% csrf_token %}
+                    <div class="flex-column">
+                        <label class="label mb-1">تعداد:</label>
+                        <input name="quantity" type="number" value="1" class="form-control input input-bordered w-13">
+                    </div>
+
+                    <input type="submit" href="{% url 'user_order' product.pk %}" class="btn btn-primary w-100 mt-3" value="ثبت سفارش">
+                  </form>
+
+          </div>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock content %}

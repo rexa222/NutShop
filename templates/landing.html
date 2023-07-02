@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html dir="rtl" lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+    <link href="{% static 'img/icon.png' %}" rel="icon" />
+    <title>خشکبار رضا</title>
+    <meta name="description" content="Login and Register Form Html Template">
+    <meta name="author" content="harnishdesign.net">
+
+    <!-- Stylesheet
+    ========================= -->
+    <link rel="stylesheet" type="text/css" href="{% static 'reg/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'landing/styles.css' %}" />
+</head>
+
+<body style="background-image:url('{% static 'img/landing.jpg' %}');">
+
+    <div class="container">
+        <img class="top-left-logo" src="{% static 'img/logo.png' %}">
+    </div>
+
+    <div class="container">
+        <a class="btn btn-info login" href="{% url 'login' %}">ورود و خرید</a>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <div class="section">
+                <h2 class="company-title">خشکبار رضا</h2>
+                <div class="company-line"></div>
+                <p class="company-description" id="typing-effect"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'landing/type.js' %}"></script>
+    <script src="{% static 'reg/js/jquery.min.js' %}"></script>
+    <script src="{% static 'reg/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- Style Switcher -->
+    <script src="{% static 'reg/js/switcher.min.js' %}"></script>
+    <script src="{% static 'reg/js/theme.js' %}"></script>
+
+</body>
+</html>

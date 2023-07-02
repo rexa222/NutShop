@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if user.is_superuser %}
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <div class="rounded-box mt-0">
+          <p class="text-center mb-0">سفارش ها</p>
+          <a href="{% url 'order' %}" class="btn btn-info btn-view">مشاهده و ویرایش</a>
+        </div>
+
+        <div class="rounded-box">
+          <p class="text-center mb-0">محصولات</p>
+          <a href="{% url 'product' %}" class="btn btn-info btn-view">مشاهده و ویرایش</a>
+        </div>
+
+        <div class="rounded-box">
+          <p class="text-center mb-0">شهر ها</p>
+          <a href="{% url 'city' %}" class="btn btn-info btn-view">مشاهده و ویرایش</a>
+        </div>
+
+        <div class="rounded-box">
+          <p class="text-center mb-0">انبار ها</p>
+          <a href="{% url 'inventory' %}" class="btn btn-info btn-view">مشاهده و ویرایش</a>
+        </div>
+
+        <div class="rounded-box">
+          <p class="text-center mb-0">موجودی انبار ها</p>
+          <a href="{% url 'inv_stock' %}" class="btn btn-info btn-view">مشاهده و ویرایش</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+{% else %}
+
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <div class="rounded-box p-3 mb-5">
+            <h2 class="my-2 text-info">به فروشگاه خشکبار رضا خوش آمدید.</h2>
+        </div>
+      </div>
+    </div>
+
+    {% for p in object_list %}
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+
+                <div class="product">
+                  <div class="rounded-box w-100">
+                    <h4 class="card-title mt-2 mb-3">{{ p.name }}</h4>
+
+                    {% if p.stock != 0 %}
+                        <div class="text-green mb-2">انبار {{ p.inventory }}، {{ p.stock }}  بسته موجود</div>
+                        <div class="text-light-blue mb-3">هر بسته {{ p.name.quantity }} کیلوگرم، {{ p.name.price }} تومان</div>
+                    {% else %}
+                        <div class="persian-digit font-bold text-danger mb-3">انبار {{ p.inventory }}، ناموجود</div>
+                    {% endif %}
+
+                    <a {% if p.stock == 0 %} disabled {% endif %} href="{% url 'user_order' p.pk %}" class="btn btn-primary w-95">
+                        خرید
+                    </a>
+                  </div>
+                </div>
+
+            </div>
+        </div>
+    {% endfor %}
+
+{% endif %}
+{% endblock content %}
