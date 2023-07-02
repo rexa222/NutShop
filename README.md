@@ -12,7 +12,7 @@ http://rexanuts.pythonanywhere.com/
 ### Test Accounts:
 | Description                        | Username | Password |
 |------------------------------------|:--------:|:--------:|
-| Admin account                      |  admin   |  12345   |
+| Admin account                      |  admin   |  123456  |
 | Customer account located in Tehran |  tehran  | teh@1234 |
 | Customer account located in Shiraz |  shiraz  | shi@1234 |
 
