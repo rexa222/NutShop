@@ -9,16 +9,16 @@ Simple shop manager for an online nut shop with django.
 http://rexanuts.pythonanywhere.com/
 
 ### Landing Page
-![landing](static\demo\rexanuts-landing.png)
+![landing](static/demo/rexanuts-landing.png)
 
 ### User Home Page
-![home](static\demo\rexanuts-home.png)
+![home](static/demo/rexanuts-home.png)
 
 ### User Orders Page
-![orders](static\demo\rexanuts-orders.png)
+![orders](static/demo/rexanuts-orders.png)
 
 ### Admin Home Page
-![Landing](static\demo\rexanuts-admin.png)
+![Landing](static/demo/rexanuts-admin.png)
 
 
 ### Test Accounts:
